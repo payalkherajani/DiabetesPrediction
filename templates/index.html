@@ -1,0 +1,389 @@
+  
+
+<!DOCTYPE html>
+
+<html >
+
+    
+
+    <style>
+
+        html {
+
+	background-color: #155d7c;
+
+	color: pink;
+
+}
+
+
+
+body {
+
+	margin: 0;
+
+	padding: 0;
+
+	box-sizing: border-box;
+
+}
+
+.head {
+
+	padding-top: 30px;
+
+	color: pink;
+
+	margin-left: 10%;
+
+	font-size: 30px;
+
+}
+
+
+
+.section {
+
+	width: 800px;
+
+	height: 600px;
+
+	margin-left: auto;
+
+	margin-right: auto;
+
+	margin-top: 100px;
+
+	box-sizing: border-box;
+
+}
+
+
+
+input {
+
+	padding: 7px;
+
+	margin-right: 30px;
+
+	margin-bottom: 10px;
+
+	border-radius: 10px;
+
+}
+
+.btn {
+
+   margin-left: 40%;
+
+   margin-top: 10%;
+
+   padding: 8px;
+
+   border-radius: 6px;
+
+}
+
+
+
+@keyframes opening{
+
+	0%{
+
+		opacity: 1;
+
+		font-size: 100px;
+
+	}
+
+	50%{
+
+		
+
+		opacity: 0.5;
+
+		font-size: 100px;
+
+	}
+
+	100%{
+
+		
+
+		opacity: 0;
+
+		font-size: 100px;
+
+	}
+
+
+
+}
+
+
+
+@keyframes opening1{
+
+	10%{
+
+		opacity: 0;
+
+		font-size: 100px;
+
+	}
+
+	50%{
+
+		
+
+		opacity: 0;
+
+		font-size: 100px;
+
+	}
+
+	100%{
+
+		
+
+		opacity: 1;
+
+		font-size: 100px;
+
+	}
+
+
+
+}
+
+
+
+@keyframes opening2{
+
+	10%{
+
+		opacity: 0;
+
+		font-size: 100px;
+
+	}
+
+	50%{
+
+		
+
+		opacity: 0;
+
+		font-size: 100px;
+
+	}
+
+	100%{
+
+		
+
+		opacity: 1;
+
+		font-size: 100px;
+
+	}
+
+}
+
+
+
+@keyframes opening3{
+
+	0%{
+
+		opacity: 0;
+
+		font-size: 50px;
+
+	}
+
+	50%{
+
+		
+
+		opacity: 0;
+
+		font-size: 50px;
+
+	}
+
+	100%{
+
+		
+
+		opacity: 1;
+
+		font-size: 50px;
+
+	}
+
+}
+
+
+
+.display{
+
+	animation: opening 5s;
+
+	opacity: 0;
+
+}
+
+
+
+.display1{
+
+	animation: opening1 10s;
+
+	opacity: 0;
+
+	margin-left: 13%;
+
+}
+
+
+
+.display2{
+
+	animation: opening2 20s;
+
+	opacity: 0;
+
+	margin-left: 8%;
+
+}
+
+
+
+.display3{
+
+	animation: opening3 40s;
+
+	opacity: 0;
+
+	margin-left: 18%;
+
+}
+
+    </style>
+
+    
+
+    
+
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>ML API</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+
+
+<body>
+
+ <div class="login">
+
+  <diV class="head">
+
+	  <h1>Predict Diabetes</h1>
+
+  </diV>
+
+
+
+  <div class="section">
+
+    <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
+
+        <input type="text" name="Glucose" placeholder="Glucose" required="required" />
+
+        <input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" />
+
+        <input type="text" name="SkinThickness" placeholder="SkinThickness" required="required" />
+
+        <input type="text" name="Insulin" placeholder="Insulin" required="required" />
+
+
+
+        <input type="text" name="BMI" placeholder="BMI" required="required" />
+
+        <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" />
+
+    <input type="text" name="Age" placeholder="Age" required="required" />
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+    <div class="display">
+
+       <p>Are You Diabetic?</p>
+
+    </div>
+
+    <div class="display1">
+
+       <p>Let's Predict</p>
+
+    </div>
+
+    <div class="display2">
+
+       <p>Enter the details</p>
+
+    </div>
+
+    <div class="display3">
+
+       <p>Hit the predict button</p>
+
+    </div>
+
+
+
+  </div>
+
+
+
+   <br>
+
+   <br>
+
+   {{ prediction_text }}
+
+
+
+ </div>
+
+
+
+
+
+</body>
+
+</html>
